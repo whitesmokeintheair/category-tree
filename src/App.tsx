@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import { CategoryTree } from './components/CategoryTree';
 import './App.css';
+import { Category } from './types';
+
+const defaultCategories: Category[] = [
+	{
+		id: 1,
+		name: 'Category 1',
+		children: [
+			{
+				id: 2,
+				name: 'Sub',
+				children: [
+					{
+						id: 4,
+						name: 'SubSub',
+						children: [],
+					},
+				],
+			},
+		],
+	},
+	{
+		id: 3,
+		name: 'Category 2',
+		children: [],
+	},
+];
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className='App-container'>
+			<CategoryTree categories={defaultCategories}></CategoryTree>
+		</div>
+	);
 }
 
 export default App;
